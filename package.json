@@ -1,0 +1,21 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "A base for users api on NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "live": "nodemon server"
+  },
+  "author": "Edgar Inoa",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "colors": "^1.3.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.11",
+    "mongoose-unique-validator": "^2.0.2",
+    "nodemon": "^1.18.10"
+  }
+}
