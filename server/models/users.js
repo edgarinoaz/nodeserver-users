@@ -31,4 +31,11 @@ let userSchema = new Schema({
     }
 }).plugin(uniqueValidator, { err: 'Duplicated field'});
 
+userSchema.methods.toJSON = function(){
+    let user = this;
+    let userObject = user.toObject();
+    delete userObject.password;
+    return userObject;
+}
+
 module.exports = mongoose.model('users', userSchema);
