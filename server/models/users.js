@@ -11,11 +11,11 @@ let userSchema = new Schema({
     email: {
         type: String,
         required: [true, 'The email is required'],
+        unique: true
     },
     password: {
         type: String,
         required: [true, 'The password is required'],
-        unique: true
     },
     status: {
         type: Boolean,

@@ -1,3 +1,5 @@
+require('./config');
+
 const colors = require('colors');
 const express = require('express');
 const app = express();
@@ -15,19 +17,21 @@ app.use(require('./routes'));
 
 
 // Connect ot MongoDB
-mongoose.connect('mongodb://localhost:27017/app', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+mongoose.connect(process.env.URI_DB, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
     if(err) { 
-        console.log('No se pudo conectar a la base de datos'.red) 
+        console.log('No se pudo conectar a la base de datos'.red);
         return;
     }
     
+    console.log('\nConectado correctamente a la DB'.green);
+    
     // Run Express Server
-    app.listen(3000, (err) => {
+    app.listen(process.env.PORT, (err) => {
         if(err) { 
             console.log('No se pudo iniciar el servidor'.red) 
             return;
         }
 
-        console.log('Servidor iniciado correctamente en el puerto 3000'.green);
+        console.log(`Servidor iniciado correctamente en el puerto ${process.env.PORT}`.green);
     });    
 })
